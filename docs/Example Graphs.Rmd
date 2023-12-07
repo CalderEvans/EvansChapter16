@@ -1,0 +1,24 @@
+---
+title: "Test Doc"
+author: "Calder Evans"
+date: "5 December 2023"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+    knitr::opts_chunk$set(echo = TRUE)
+    library(EvansChapter16)
+```
+
+Maximum Temperatures from 2010 - Example
+```{r}
+data(Flagstaff_Weather)
+Flag.Weather.2010 <- Flagstaff_Weather %>% filter(str_detect(Flagstaff_Weather$DATE, pattern = "2010")) 
+  ggplot(data = Flag.Weather.2010.graph, aes(x=DATE, y=TMAX)) + geom_point()
+```
+
+Minimum Temperatures from 1969 - Example
+```{r}
+Flag.Weather.1969 <- Flagstaff_Weather %>% filter(str_detect(Flagstaff_Weather$DATE, pattern = "1969")) 
+  ggplot(data = Flag.Weather.1969, aes(x=DATE, y=TMIN)) + geom_point()
+```
